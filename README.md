@@ -18,8 +18,6 @@
 
 Henge saves your graphics settings as presets for Retail and WoW Forever. Swap them from the window or a macro, and let Henge pick one per location or per character.
 
-Henge (変化) is the shapeshifting of a kitsune.
-
 ## What it does
 
 - **Presets**: save your current graphics settings under a name, apply any preset with one click, update or delete your own. "FPS Settings" and "Inari Graphics" are built in. Your settings from before the first login are kept as "Original Settings".
