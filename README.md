@@ -1,6 +1,22 @@
-# Henge
+<div align="center">
 
-Graphics presets for World of Warcraft (Retail and WoW Forever). Save your settings, swap them with one click, and let Henge pick a preset per location or per character.
+<img src="Henge/Media/logo.png" alt="Henge" width="200">
+
+<h1>Henge</h1>
+
+<p>Graphics presets for World of Warcraft, swapped with one click, per location and per character.</p>
+
+<p>
+  <a href="#what-it-does">What it does</a>
+  ·
+  <a href="#commands">Commands</a>
+  ·
+  <a href="Henge/CHANGELOG.md">Changelog</a>
+</p>
+
+</div>
+
+Henge saves your graphics settings as presets for Retail and WoW Forever. Swap them from the window or a macro, and let Henge pick one per location or per character.
 
 Henge (変化) is the shapeshifting of a kitsune.
 
