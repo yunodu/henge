@@ -7,6 +7,8 @@
 <p>Graphics presets for World of Warcraft, swapped with one click, per location and per character.</p>
 
 <p>
+  <a href="https://github.com/yunodu/henge/releases/latest">Download</a>
+  ·
   <a href="#what-it-does">What it does</a>
   ·
   <a href="#commands">Commands</a>
