@@ -86,9 +86,8 @@ local INSTANCE_CONTEXT = { party = "dungeon", scenario = "dungeon", arena = "dun
 
 -- Words the slash command reads as an action, so no preset name may start with them.
 local RESERVED_NAMES = {
-    next = true, toggle = true, cycle = true, swap = true, list = true,
-    save = true, add = true, delete = true, remove = true, none = true,
-    world = true, dungeon = true, raid = true,
+    next = true, toggle = true, cycle = true, swap = true, list = true, help = true, status = true,
+    save = true, add = true, delete = true, remove = true, set = true, none = true,
 }
 
 local listeners = {}
@@ -512,8 +511,8 @@ local function Startup()
     end
 
     local inari = _G.InariDB
-    if not db.inariImported and type(inari) == "table" and type(inari.graphicsPresets) == "table" then
-        db.inariImported = true
+    if not db.inariPresetsImported and type(inari) == "table" and type(inari.graphicsPresets) == "table" then
+        db.inariPresetsImported = true
         local imported = 0
         for _, saved in ipairs(inari.graphicsPresets) do
             if type(saved) == "table" and type(saved.name) == "string" and type(saved.cvars) == "table"
@@ -549,7 +548,8 @@ local function PrintPresets()
     Print("current: " .. (current and current.label or "custom") .. (modified and " (modified)" or "")
         .. "; presets: " .. table.concat(names, ", "))
     Print((own and "this character's locations: " or "account locations: ") .. table.concat(assigned, ", "))
-    Print("usage: /henge next | <name> | save <name> | delete <name> | world|dungeon|raid <name>|none")
+    -- No "|" in chat text: the client reads "|r" and "|c" as colour codes.
+    Print("commands: /henge next, /henge <name>, /henge save <name>, /henge delete <name>, /henge set world/dungeon/raid <name> (or none)")
 end
 
 local function HandleCommand(arg)
@@ -571,13 +571,15 @@ local function HandleCommand(arg)
         _, message = SavePreset(rest)
     elseif word == "delete" or word == "remove" then
         _, message = DeletePreset(rest)
-    elseif CONTEXT_LABELS[word] then
-        if rest == "" then
-            message = "usage: /henge " .. word .. " <name>|none"
-        elseif string.lower(rest) == "none" then
-            _, message = SetSlot(word, nil)
+    elseif word == "set" then
+        local context, name = rest:match("^(%S*)%s*(.-)$")
+        context = string.lower(context)
+        if not CONTEXT_LABELS[context] or name == "" then
+            message = "usage: /henge set world/dungeon/raid <name> (or none)"
+        elseif string.lower(name) == "none" then
+            _, message = SetSlot(context, nil)
         else
-            _, message = SetSlot(word, rest)
+            _, message = SetSlot(context, name)
         end
     else
         _, message = ApplyPreset(arg)

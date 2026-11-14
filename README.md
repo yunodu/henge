@@ -41,7 +41,7 @@ Window mode, resolution, monitor, HDR and anti-aliasing are never touched. Blizz
 | `/henge <name>` | apply a preset (`fps`, `inari`, or one of yours) |
 | `/henge save <name>` | save the current settings as a preset |
 | `/henge delete <name>` | delete one of your presets |
-| `/henge world\|dungeon\|raid <name>` | set the preset for a location (`none` clears it) |
+| `/henge set world\|dungeon\|raid <name>` | set the preset for a location (`none` clears it) |
 | `/henge list` | show the current preset, all presets and the locations |
 
 Henge is also in the minimap addon dropdown.
