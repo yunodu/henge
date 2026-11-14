@@ -6,6 +6,7 @@
 ## Version: 1.0
 ## OptionalDeps: inari
 ## SavedVariables: HengeDB
+## X-Curse-Project-ID: 1804841
 ## AddonCompartmentFunc: Henge_OnAddonCompartmentClick
 
 UI.lua
